@@ -8,6 +8,8 @@ import {
   type ReactNode,
 } from "react";
 
+const asset = (p: string) => `${import.meta.env.BASE_URL}${p.replace(/^\//, "")}`;
+
 type ProjectCategory = "Уроки" | "Авторская музыка" | "Выступления";
 
 type Project = {
