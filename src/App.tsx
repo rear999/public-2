@@ -87,8 +87,8 @@ const scannedDiplomas = [
   },
   {
     type: "Студенческая жизнь",
-    caption: "За активное участие в жизни колледжа и городских мероприятиях · 2026",
-    alt: "Грамота за активное участие в жизни колледжа и городских мероприятиях",
+    caption: "За активное участие в жизни колледжа и городских мероприятий · 2026",
+    alt: "Грамота за активное участие в жизни колледжа и городских мероприятий",
   },
   {
     type: "Студенческая весна · 2025",
@@ -505,10 +505,10 @@ export default function App() {
             <div className="about-grid">
               <div className="about-copy reveal">
                 <EditableText as="p" field="story-copy-primary" editMode={editMode} className="about-lead">
-                  Мне 18 лет, и мой путь не помещается в одну профессию. Я учусь, исследую право и технологии, пишу музыку и не хочу останавливаться на одном направлении.
+                  Мне 18 лет, и мой путь не помещается в одну профессию. Я учусь, исследую право и технологии, пишу музыку и развиваюсь.
                 </EditableText>
                 <EditableText as="p" field="story-copy-secondary" editMode={editMode} className="about-secondary">
-                  Гитара со мной с семи лет: я пишу музыку, выступаю и преподаю. Сегодня рядом с творчеством в моей жизни — дисциплина, интерес к точным наукам и желание понять, как устроен мир вокруг.
+                  Гитара со мной с семи лет: я пишу музыку, выступаю и преподаю. Сегодня рядом с творчеством в моей жизни есть и обучение.
                 </EditableText>
                 <div className="about-principle">
                   <span className="principle-line" />
@@ -676,7 +676,7 @@ export default function App() {
                       1 место · научная работа
                     </EditableText>
                     <EditableText as="p" field="story-award-article-copy" editMode={editMode}>
-                      Секция «Технические науки», VII Международный научно-исследовательский конкурс «Лучшие студенческие работы» · 2026.
+                      Секция «Технические науки», VII Международный научно-исследовательский конкурс «Лучшие студенческие работы — 2026».
                     </EditableText>
                     <a className="timeline-resource" href={asset('/images/artemiy-scientific-diploma.jpg')} target="_blank" rel="noreferrer">
                       Открыть диплом <ArrowIcon />
@@ -689,7 +689,7 @@ export default function App() {
                       Всероссийская олимпиада «Ориентир развития"
                     </EditableText>
                     <EditableText as="p" field="story-award-olympiad-copy" editMode={editMode}>
-                      Центр тестирования и олимпиад «Ориентир развития» · возможность международного участия · дипломы и итоговый опыт.
+                      Центр тестирования и олимпиад «Ориентир развития» · возможность международного участия · диплом и сертификат.
                     </EditableText>
                   </div>
                 </article>
@@ -737,9 +737,9 @@ export default function App() {
             </div>
             <div className="diploma-grid" id="diploma-grid">
               <figure className="diploma-item reveal">
-                <a className="diploma-image-link" href={asset('/images/artemiy-scientific-diploma.jpg')} target="_blank" rel="noreferrer" aria-label="Открыть диплом за первое место в научном конкурсе">
+                <a className="diploma-image-link" href={asset('/images/artemiy-scientific-diploma.jpg')} target="_blank" rel="noreferrer" aria-label="Открыть диплом за первое место">
                   <div className="diploma-image">
-                    <img src={asset('/images/artemiy-scientific-diploma.jpg')} alt="Диплом Артемия Баранова за первое место в секции «Технические науки»" loading="lazy" />
+                    <img src={asset('/images/artemiy-scientific-diploma.jpg')} alt="Диплом Артемия Баранова за первое место в секции «Технические науки»" />
                   </div>
                 </a>
                 <figcaption>
@@ -748,7 +748,7 @@ export default function App() {
                 </figcaption>
               </figure>
               <figure className="diploma-item reveal">
-                <a className="diploma-image-link" href={asset('/images/artemiy-publication-certificate.jpg')} target="_blank" rel="noreferrer" aria-label="Открыть справку о публикации статьи">
+                <a className="diploma-image-link" href={asset('/images/artemiy-publication-certificate.jpg')} target="_blank" rel="noreferrer" aria-label="Открыть справку о публикации">
                   <div className="diploma-image">
                     <img src={asset('/images/artemiy-publication-certificate.jpg')} alt="Справка о публикации научной статьи Артемия Баранова" loading="lazy" />
                   </div>
@@ -759,7 +759,7 @@ export default function App() {
                 </figcaption>
               </figure>
               <figure className="diploma-item reveal">
-                <a className="diploma-image-link" href={asset('/images/artemiy-olympiad-diploma.jpg')} target="_blank" rel="noreferrer" aria-label="Открыть диплом второй степени по олимпиаде">
+                <a className="diploma-image-link" href={asset('/images/artemiy-olympiad-diploma.jpg')} target="_blank" rel="noreferrer" aria-label="Открыть диплом второй степени">
                   <div className="diploma-image">
                     <img src={asset('/images/artemiy-olympiad-diploma.jpg')} alt="Диплом II степени Артемия Баранова во Всероссийской олимпиаде" loading="lazy" />
                   </div>
@@ -816,7 +816,7 @@ export default function App() {
             <div className="college-experience">
               <div className="college-story-row">
                 <EditableText as="p" field="college-story-primary" editMode={editMode}>
-                  Колледж стал важной частью моего становления — не только как музыканта, но и как человека. Здесь я научился не только учиться, но и проявлять себя в разных форматах: в творчестве, в работе в команде и в общественной жизни.
+                  Колледж стал важной частью моего становления — не только как музыканта, но и как человека. Здесь есть пространство для творчества.
                 </EditableText>
                 <figure className="college-photo college-photo-group">
                   <img src={asset('/images/artemiy-mokit-group.jpeg')} alt="Студенты МОКИТа вместе в аудитории" />
@@ -825,10 +825,10 @@ export default function App() {
               </div>
               <div className="college-story-row">
                 <EditableText as="p" field="college-story-secondary" editMode={editMode}>
-                  В МОКИТе у меня появилось пространство для творческого развития: я участвовал в мероприятиях, выступал на сцене и учился находить себя в разных ролях.
+                  В МОКИТе у меня появилось пространство для творческого развития: я участвовал в мероприятиях и выступал.
                 </EditableText>
                 <figure className="college-photo college-photo-award">
-                  <img src={asset('/images/photo_2025-10-02_16-21-32.jpg')} alt="Артемий играет на гитаре перед аудиторией на мероприятии в колледже" />
+                  <img src={asset('/images/photo_2025-10-02_16-21-32.jpg')} alt="Артемий играет на гитаре перед аудиторией" />
                   <figcaption>Музыкальное выступление в колледже</figcaption>
                 </figure>
               </div>
