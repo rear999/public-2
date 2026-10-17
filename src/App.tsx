@@ -71,7 +71,7 @@ const projects: Project[] = [
 ];
 
 const filters = ["Все", "Уроки", "Авторская музыка", "Выступления"] as const;
-const performanceVideo = "/images/video_2026-10-17_14-57-48.mp4";
+const performanceVideo = asset("/images/video_2026-10-17_14-57-48.mp4");
 
 const scannedDiplomas = [
   {
@@ -225,7 +225,7 @@ function EditIcon() {
 function PrintIcon() {
   return (
     <svg aria-hidden="true" viewBox="0 0 20 20" fill="none">
-      <path d="M6 7V3.8h8V7M5.2 14H4a1.5 1.5 0 0 1-1.5-1.5v-3A1.5 1.5 0 0 1 4 8h12a1.5 1.5 0 0 1 1.5 1.5v3A1.5 1.5 0 0 1 16 14h-1.2M6 11.5h8v5H6v-5Z" stroke="currentColor" strokeWidth="1.35" strokeLinejoin="round" />
+      <path d="M6 7V3.8h8V7M5.2 14H4a1.5 1.5 0 0 1-1.5-1.5v-3A1.5 1.5 0 0 1 4 8h12a1.5 1.5 0 0 1 1.5 1.5v3A1.5 1.5 0 0 1 16 14h-1.2M6 11.5h8v5H6v-5Z" stroke="currentColor" strokeWidth="1.35" stro[...]
       <circle cx="14.4" cy="10.5" r=".7" fill="currentColor" />
     </svg>
   );
@@ -453,7 +453,7 @@ export default function App() {
 
       <main>
         <section className="hero-section" id="top" aria-labelledby="hero-title">
-          <div className="hero-image" aria-hidden="true" />
+          <div className="hero-image" aria-hidden="true" style={{ backgroundImage: `url(${asset('/images/artemiy-stage.jpg')})` }} />
           <div className="hero-shade" aria-hidden="true" />
           <div className="hero-content page-width">
             <p className="hero-eyebrow hero-enter hero-enter-1">
@@ -499,10 +499,10 @@ export default function App() {
             <div className="about-grid">
               <div className="about-copy reveal">
                 <EditableText as="p" field="story-copy-primary" editMode={editMode} className="about-lead">
-                  Мне 18 лет, и мой путь не помещается в одну профессию. Я учусь, исследую право и технологии, пишу научные статьи и продолжаю заниматься музыкой.
+                  Мне 18 лет, и мой путь не помещается в одну профессию. Я учусь, исследую право и технологии, пишу на�[...]
                 </EditableText>
                 <EditableText as="p" field="story-copy-secondary" editMode={editMode} className="about-secondary">
-                  Гитара со мной с семи лет: я пишу музыку, выступаю и преподаю. Сегодня рядом с творчеством в моей жизни идут две специальности, научная работа и студенческое самоуправление.
+                  Гитара со мной с семи лет: я пишу музыку, выступаю и преподаю. Сегодня рядом с творчеством в моей ж[...]
                 </EditableText>
                 <div className="about-principle">
                   <span className="principle-line" />
@@ -512,7 +512,7 @@ export default function App() {
                 </div>
               </div>
               <figure className="about-figure reveal">
-                <img src="/images/photo_2025-09-02_13-27-43.jpg" alt="Артемий" />
+                <img src={asset('/images/photo_2025-09-02_13-27-43.jpg')} alt="Артемий" />
                 <figcaption>
                   <span>01 / В ПРОЦЕССЕ</span>
                     <EditableText field="story-photo-caption" editMode={editMode}>
@@ -670,9 +670,9 @@ export default function App() {
                       1 место · научная работа
                     </EditableText>
                     <EditableText as="p" field="story-award-article-copy" editMode={editMode}>
-                      Секция «Технические науки», VII Международный научно-исследовательский конкурс «Лучшие студенческие работы 2026». Статья: «Понятие цифровой подписи и её применение в контексте обеспечения доверенной цифровой среды».
+                      Секция «Технические науки», VII Международный научно-исследовательский конкурс «Лучшие студен[...]
                     </EditableText>
-                    <a className="timeline-resource" href="/images/artemiy-scientific-diploma.jpg" target="_blank" rel="noreferrer">
+                    <a className="timeline-resource" href={asset('/images/artemiy-scientific-diploma.jpg')} target="_blank" rel="noreferrer">
                       Открыть диплом <ArrowIcon />
                     </a>
                   </div>
@@ -680,10 +680,10 @@ export default function App() {
                 <article className="timeline-entry reveal">
                   <div>
                     <EditableText as="h3" field="story-award-olympiad-title" editMode={editMode}>
-                      Всероссийская олимпиада «Ориентир развития»
+                      Всероссийская олимпиада «Ориентир развития"
                     </EditableText>
                     <EditableText as="p" field="story-award-olympiad-copy" editMode={editMode}>
-                      Центр тестирования и олимпиад «Ориентир развития» · возможность международного участия · диплом II степени, Баранов А. А.
+                      Центр тестирования и олимпиад «Ориентир развития» · возможность международного участия · дип[...]
                     </EditableText>
                   </div>
                 </article>
@@ -709,7 +709,7 @@ export default function App() {
                 </article>
               </div>
               <figure className="awards-photo reveal">
-                <img src="/images/artemiy-mokit-award.jpeg" alt="Артемий получает грамоту в колледже" />
+                <img src={asset('/images/artemiy-mokit-award.jpeg')} alt="Артемий получает грамоту в колледже" />
               </figure>
             </div>
           </div>
@@ -731,9 +731,9 @@ export default function App() {
             </div>
             <div className="diploma-grid" id="diploma-grid">
               <figure className="diploma-item reveal">
-                <a className="diploma-image-link" href="/images/artemiy-scientific-diploma.jpg" target="_blank" rel="noreferrer" aria-label="Открыть диплом за первое место в научном конкурсе">
+                <a className="diploma-image-link" href={asset('/images/artemiy-scientific-diploma.jpg')} target="_blank" rel="noreferrer" aria-label="Открыть диплом за первое мест[...]">
                   <div className="diploma-image">
-                    <img src="/images/artemiy-scientific-diploma.jpg" alt="Диплом Артемия Баранова за первое место в секции «Технические науки»" loading="lazy" />
+                    <img src={asset('/images/artemiy-scientific-diploma.jpg')} alt="Диплом Артемия Баранова за первое место в секции «Технические на[...]")" loading="lazy" />
                   </div>
                 </a>
                 <figcaption>
@@ -742,9 +742,9 @@ export default function App() {
                 </figcaption>
               </figure>
               <figure className="diploma-item reveal">
-                <a className="diploma-image-link" href="/images/artemiy-publication-certificate.jpg" target="_blank" rel="noreferrer" aria-label="Открыть справку о публикации научной статьи">
+                <a className="diploma-image-link" href={asset('/images/artemiy-publication-certificate.jpg')} target="_blank" rel="noreferrer" aria-label="Открыть справку о публикац[...]">
                   <div className="diploma-image">
-                    <img src="/images/artemiy-publication-certificate.jpg" alt="Справка о публикации научной статьи Артемия Баранова" loading="lazy" />
+                    <img src={asset('/images/artemiy-publication-certificate.jpg')} alt="Справка о публикации научной статьи Артемия Баранова" loading="lazy" />
                   </div>
                 </a>
                 <figcaption>
@@ -753,9 +753,9 @@ export default function App() {
                 </figcaption>
               </figure>
               <figure className="diploma-item reveal">
-                <a className="diploma-image-link" href="/images/artemiy-olympiad-diploma.jpg" target="_blank" rel="noreferrer" aria-label="Открыть диплом второй степени Всероссийской олимпиады">
+                <a className="diploma-image-link" href={asset('/images/artemiy-olympiad-diploma.jpg')} target="_blank" rel="noreferrer" aria-label="Открыть диплом второй степени [...]">
                   <div className="diploma-image">
-                    <img src="/images/artemiy-olympiad-diploma.jpg" alt="Диплом II степени Артемия Баранова во Всероссийской олимпиаде «Ориентир развития»" loading="lazy" />
+                    <img src={asset('/images/artemiy-olympiad-diploma.jpg')} alt="Диплом II степени Артемия Баранова во Всероссийской олимпиаде «Ори[...]")" loading="lazy" />
                   </div>
                 </a>
                 <figcaption>
@@ -764,14 +764,14 @@ export default function App() {
                 </figcaption>
               </figure>
               {(showAllDiplomas ? scannedDiplomas : []).map((diploma, index) => {
-                const image = `/images/diploma-scan-${String(diploma.scan ?? index + 1).padStart(2, "0")}.jpg`;
+                const image = `/images/diploma-scan-${String(diploma.scan ?? index + 1).padStart(2, "02")}.jpg`;
                 const number = index + 4;
 
                 return (
                   <figure className={`diploma-item reveal${diploma.landscape ? " diploma-item-landscape" : ""}${diploma.wide ? " diploma-item-wide" : ""}`} key={image}>
-                    <a className="diploma-image-link" href={image} target="_blank" rel="noreferrer" aria-label={`Открыть документ: ${diploma.type}`}>
+                    <a className="diploma-image-link" href={asset(image)} target="_blank" rel="noreferrer" aria-label={`Открыть документ: ${diploma.type}`}>
                       <div className="diploma-image">
-                        <img src={image} alt={diploma.alt} loading="lazy" />
+                        <img src={asset(image)} alt={diploma.alt} loading="lazy" />
                       </div>
                     </a>
                     <figcaption>
@@ -810,19 +810,19 @@ export default function App() {
             <div className="college-experience">
               <div className="college-story-row">
                 <EditableText as="p" field="college-story-primary" editMode={editMode}>
-                  Колледж стал важной частью моего становления — не только как музыканта, но и как человека. Здесь я встретил людей, которые поверили в мои идеи, поддерживали интерес к музыке и помогали не бояться пробовать новое. Общение с однокурсниками и преподавателями научило меня внимательнее слушать других, работать вместе и видеть в творчестве больше, чем просто освоение инструмента.
+                  Колледж стал важной частью моего становления — не только как музыканта, но и как человека. Здесь [...] 
                 </EditableText>
                 <figure className="college-photo college-photo-group">
-                  <img src="/images/artemiy-mokit-group.jpeg" alt="Студенты МОКИТа вместе в аудитории" />
+                  <img src={asset('/images/artemiy-mokit-group.jpeg')} alt="Студенты МОКИТа вместе в аудитории" />
                   <figcaption>Люди, с которыми росло творчество</figcaption>
                 </figure>
               </div>
               <div className="college-story-row">
                 <EditableText as="p" field="college-story-secondary" editMode={editMode}>
-                  В МОКИТе у меня появилось пространство для творческого развития: я участвовал в мероприятиях, выступал на сцене и постепенно находил собственное звучание. Каждый такой опыт помогал лучше понять, каким музыкантом я хочу быть, и придавал уверенности двигаться дальше. Для меня колледж — не просто место учёбы, а важная часть личной и музыкальной истории, к которой я с благодарностью возвращаюсь в воспоминаниях.
+                  В МОКИТе у меня появилось пространство для творческого развития: я участвовал в мероприятиях, выст[...]
                 </EditableText>
                 <figure className="college-photo college-photo-award">
-                  <img src="/images/photo_2025-10-02_16-21-32.jpg" alt="Артемий играет на гитаре перед аудиторией на мероприятии в колледже" />
+                  <img src={asset('/images/photo_2025-10-02_16-21-32.jpg')} alt="Артемий играет на гитаре перед аудиторией на мероприятии в колледж[...]" />
                   <figcaption>Музыкальное выступление в колледже</figcaption>
                 </figure>
               </div>
@@ -862,7 +862,7 @@ export default function App() {
             <div className="photo-grid">
               <figure className="photo-figure photo-large reveal">
                 <div className="photo-frame">
-                  <img src="/images/artemiy-band.jpg" alt="Артемий играет с музыкальным коллективом" />
+                  <img src={asset('/images/artemiy-band.jpg')} alt="Артемий играет с музыкальным коллективом" />
                 </div>
                 <figcaption>
                   <EditableText field="media-photo-1" editMode={editMode}>Музыка рождается вместе · выступление коллектива</EditableText>
@@ -871,7 +871,7 @@ export default function App() {
               </figure>
               <figure className="photo-figure photo-small reveal">
                 <div className="photo-frame">
-                  <img src="/images/artemiy-live.jpg" alt="Артемий играет на сцене" />
+                  <img src={asset('/images/artemiy-live.jpg')} alt="Артемий играет на сцене" />
                 </div>
                 <figcaption>
                   <EditableText field="media-photo-2" editMode={editMode}>Когда музыка звучит вместе</EditableText>
@@ -947,7 +947,7 @@ export default function App() {
             {modal.kind === "project" && (
               <>
                 <div className="project-dialog-image">
-                  <img src={modal.project.image} alt={modal.project.imageAlt} />
+                  <img src={asset(modal.project.image)} alt={modal.project.imageAlt} />
                   <EditableText as="span" field={`project-${modal.project.id}-meta`} editMode={editMode}>
                     {modal.project.category} · {modal.project.year}
                   </EditableText>
@@ -998,7 +998,7 @@ export default function App() {
                   </div>
                 ) : (
                   <div className="video-embed-wrap">
-                    <video controls playsInline preload="metadata" poster="/images/artemiy-live.jpg">
+                    <video controls playsInline preload="metadata" poster={asset('/images/artemiy-live.jpg')}>
                       <source src={performanceVideo} type="video/mp4" />
                       Ваш браузер не поддерживает воспроизведение видео.
                     </video>
