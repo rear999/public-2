@@ -118,6 +118,12 @@ const scannedDiplomas = [
     wide: true,
     scan: 2,
   },
+  {
+    type: "Международный научный конкурс",
+    caption: "Победитель · I место · «100 лучших авторов года — 2026»",
+    alt: "Диплом победителя конкурса «100 лучших авторов года — 2026» за первое место в секции «Технические науки»",
+    image: "/images/artemiy-best-author-diploma-2026.jpg",
+  },
 ];
 
 function saveEditableText(field: string, element: HTMLElement) {
@@ -505,7 +511,7 @@ export default function App() {
             <div className="about-grid">
               <div className="about-copy reveal">
                 <EditableText as="p" field="story-copy-primary" editMode={editMode} className="about-lead">
-                  Мне 18 лет, и мой путь не помещается в одну профессию. Я учусь, исследую право и технологии, пишу музыку и развиваюсь.
+                  Мне 18 лет, и мой путь не помещается в одну профессию. Я учусь, исследую право и информационную безопасность, пишу научные статьи и продолжаю заниматься музыкой.
                 </EditableText>
                 <EditableText as="p" field="story-copy-secondary" editMode={editMode} className="about-secondary">
                   Гитара со мной с семи лет: я пишу музыку, выступаю и преподаю. Сегодня рядом с творчеством в моей жизни есть и обучение.
@@ -575,7 +581,9 @@ export default function App() {
                 <div>
                   <span>СТУДЕНЧЕСКОЕ САМОУПРАВЛЕНИЕ</span>
                   <EditableText as="p" field="education-council" editMode={editMode}>
-                    Активный участник студсовета; на третьем курсе стал заместителем председателя.
+                    Активный участник студсовета.
+                    <br />
+                    На третьем курсе стал заместителем председателя.
                   </EditableText>
                 </div>
               </div>
@@ -770,7 +778,7 @@ export default function App() {
                 </figcaption>
               </figure>
               {(showAllDiplomas ? scannedDiplomas : []).map((diploma, index) => {
-                const image = `/images/diploma-scan-${String(diploma.scan ?? index + 1).padStart(2, "02")}.jpg`;
+                const image = diploma.image ?? `/images/diploma-scan-${String(diploma.scan ?? index + 1).padStart(2, "0")}.jpg`;
                 const number = index + 4;
 
                 return (
