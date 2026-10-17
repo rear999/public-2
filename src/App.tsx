@@ -69,6 +69,54 @@ const projects: Project[] = [
 ];
 
 const filters = ["Все", "Уроки", "Авторская музыка", "Выступления"] as const;
+const performanceVideo = "/images/video_2026-10-17_14-57-48.mp4";
+
+const scannedDiplomas = [
+  {
+    type: "Интеллектуальный конкурс",
+    caption: "Победа на молодёжном слёте Подольского благочиния",
+    alt: "Грамота победителя интеллектуального конкурса молодёжного слёта Подольского благочиния",
+  },
+  {
+    type: "Благодарственное письмо",
+    caption: "За активное участие в жизни колледжа · 2024",
+    alt: "Благодарственное письмо за активное участие в жизни колледжа",
+    scan: 8,
+  },
+  {
+    type: "Студенческая жизнь",
+    caption: "За активное участие в жизни колледжа и городских мероприятиях · 2026",
+    alt: "Грамота за активное участие в жизни колледжа и городских мероприятиях",
+  },
+  {
+    type: "Студенческая весна · 2025",
+    caption: "III место · вокальное направление",
+    alt: "Грамота за третье место в конкурсе вокалистов фестиваля «Студенческая весна»",
+  },
+  {
+    type: "Общественная деятельность",
+    caption: "За активное участие в жизни колледжа и молодёжных движениях · 2025",
+    alt: "Грамота за активное участие в жизни колледжа, молодёжных движениях и городских мероприятиях",
+  },
+  {
+    type: "Универсиада студентов · 2025",
+    caption: "I место · спортивное метание ножа",
+    alt: "Грамота за первое место в соревнованиях по спортивному метанию ножа",
+  },
+  {
+    type: "Студенческая весна · 2026",
+    caption: "Лауреат I степени · муниципальный этап, инструментальное направление",
+    alt: "Диплом лауреата первой степени муниципального этапа фестиваля «Студенческая весна Подмосковья»",
+  },
+  {
+    type: "Студенческая весна · 2026",
+    caption: "Лауреат I степени · инструментальное направление",
+    alt: "Диплом лауреата первой степени фестиваля «Студенческая весна Подмосковья»",
+    landscape: true,
+    wide: true,
+    scan: 2,
+  },
+];
 
 function saveEditableText(field: string, element: HTMLElement) {
   const text = element.innerText.trim();
@@ -223,6 +271,7 @@ function getVideoEmbedUrl(value: string) {
 
 export default function App() {
   const [editMode, setEditMode] = useState(false);
+  const [showAllDiplomas, setShowAllDiplomas] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeFilter, setActiveFilter] = useState<(typeof filters)[number]>("Все");
@@ -296,7 +345,7 @@ export default function App() {
 
     revealItems.forEach((item) => observer.observe(item));
     return () => observer.disconnect();
-  }, []);
+  }, [showAllDiplomas]);
 
   useEffect(() => {
     if (!modal) return;
@@ -461,7 +510,7 @@ export default function App() {
                 </div>
               </div>
               <figure className="about-figure reveal">
-                <img src="/images/artemiy-guitar.jpg" alt="Артемий с гитарой" />
+                <img src="/images/photo_2025-09-02_13-27-43.jpg" alt="Артемий" />
                 <figcaption>
                   <span>01 / В ПРОЦЕССЕ</span>
                     <EditableText field="story-photo-caption" editMode={editMode}>
@@ -604,7 +653,6 @@ export default function App() {
             <div className="awards-content">
               <div className="timeline-list">
                 <article className="timeline-entry reveal">
-                  <EditableText as="span" field="story-award-scholarship" editMode={editMode} className="timeline-year">Стип.</EditableText>
                   <div>
                     <EditableText as="h3" field="story-award-scholarship-title" editMode={editMode}>
                       Государственная стипендия
@@ -615,7 +663,6 @@ export default function App() {
                   </div>
                 </article>
                 <article className="timeline-entry reveal">
-                  <EditableText as="span" field="story-award-article" editMode={editMode} className="timeline-year">2026</EditableText>
                   <div>
                     <EditableText as="h3" field="story-award-article-title" editMode={editMode}>
                       1 место · научная работа
@@ -629,7 +676,6 @@ export default function App() {
                   </div>
                 </article>
                 <article className="timeline-entry reveal">
-                  <EditableText as="span" field="story-award-olympiad" editMode={editMode} className="timeline-year">II ст.</EditableText>
                   <div>
                     <EditableText as="h3" field="story-award-olympiad-title" editMode={editMode}>
                       Всероссийская олимпиада «Ориентир развития»
@@ -640,7 +686,6 @@ export default function App() {
                   </div>
                 </article>
                 <article className="timeline-entry reveal">
-                  <EditableText as="span" field="story-award-music" editMode={editMode} className="timeline-year">I / II</EditableText>
                   <div>
                     <EditableText as="h3" field="story-award-music-title" editMode={editMode}>
                       Студенческая весна
@@ -651,7 +696,6 @@ export default function App() {
                   </div>
                 </article>
                 <article className="timeline-entry reveal">
-                  <EditableText as="span" field="story-award-teaching" editMode={editMode} className="timeline-year">3 года</EditableText>
                   <div>
                     <EditableText as="h3" field="story-award-teaching-title" editMode={editMode}>
                       Преподавание гитары
@@ -662,32 +706,9 @@ export default function App() {
                   </div>
                 </article>
               </div>
-
-              <div className="tunings-panel reveal">
-                <div className="tunings-heading">
-                  <span>МУЗЫКА — ОТДЕЛЬНАЯ ГЛАВА</span>
-                  <span>Гитара со мной с семи лет</span>
-                </div>
-                <div className="tuning-cards">
-                  <article className="tuning-card">
-                    <span className="tuning-index">01 / OPEN TUNING</span>
-                    <EditableText as="h3" field="tuning-dadgad" editMode={editMode}>DADGAD</EditableText>
-                    <p>Открытое звучание для мелодий, которым нужно больше воздуха.</p>
-                    <div className="tuning-notes" aria-label="Строй DADGAD, от шестой струны к первой">
-                      <span>D</span><span>A</span><span>D</span><span>G</span><span>A</span><span>D</span>
-                    </div>
-                  </article>
-                  <article className="tuning-card">
-                    <span className="tuning-index">02 / OPEN TUNING</span>
-                    <EditableText as="h3" field="tuning-cgcebe" editMode={editMode}>CGCEBE</EditableText>
-                    <p>Необычная настройка, которая подсказывает новые гармонические ходы.</p>
-                    <div className="tuning-notes" aria-label="Строй CGCEBE, от шестой струны к первой">
-                      <span>C</span><span>G</span><span>C</span><span>E</span><span>B</span><span>E</span>
-                    </div>
-                  </article>
-                </div>
-                <p className="tuning-caption">Меняя строй, каждый раз заново знакомлюсь с инструментом.</p>
-              </div>
+              <figure className="awards-photo reveal">
+                <img src="/images/artemiy-mokit-award.jpeg" alt="Артемий получает грамоту в колледже" />
+              </figure>
             </div>
           </div>
         </section>
@@ -706,7 +727,7 @@ export default function App() {
                 Дипломы и документы, подтверждающие научные и учебные достижения.
               </EditableText>
             </div>
-            <div className="diploma-grid">
+            <div className="diploma-grid" id="diploma-grid">
               <figure className="diploma-item reveal">
                 <a className="diploma-image-link" href="/images/artemiy-scientific-diploma.jpg" target="_blank" rel="noreferrer" aria-label="Открыть диплом за первое место в научном конкурсе">
                   <div className="diploma-image">
@@ -740,7 +761,35 @@ export default function App() {
                   <EditableText as="p" field="diploma-3-caption" editMode={editMode}>Диплом II степени · «Ориентир развития»</EditableText>
                 </figcaption>
               </figure>
+              {(showAllDiplomas ? scannedDiplomas : []).map((diploma, index) => {
+                const image = `/images/diploma-scan-${String(diploma.scan ?? index + 1).padStart(2, "0")}.jpg`;
+                const number = index + 4;
+
+                return (
+                  <figure className={`diploma-item reveal${diploma.landscape ? " diploma-item-landscape" : ""}${diploma.wide ? " diploma-item-wide" : ""}`} key={image}>
+                    <a className="diploma-image-link" href={image} target="_blank" rel="noreferrer" aria-label={`Открыть документ: ${diploma.type}`}>
+                      <div className="diploma-image">
+                        <img src={image} alt={diploma.alt} loading="lazy" />
+                      </div>
+                    </a>
+                    <figcaption>
+                      <EditableText as="span" field={`diploma-${number}-type`} editMode={editMode}>{diploma.type}</EditableText>
+                      <EditableText as="p" field={`diploma-${number}-caption`} editMode={editMode}>{diploma.caption}</EditableText>
+                    </figcaption>
+                  </figure>
+                );
+              })}
             </div>
+            <button
+              className="diploma-toggle"
+              type="button"
+              aria-expanded={showAllDiplomas}
+              aria-controls="diploma-grid"
+              onClick={() => setShowAllDiplomas((showing) => !showing)}
+            >
+              {showAllDiplomas ? "Свернуть" : "Показать больше"}
+              <span aria-hidden="true">{showAllDiplomas ? "−" : "+"}</span>
+            </button>
           </div>
         </section>
 
@@ -757,22 +806,22 @@ export default function App() {
               </EditableText>
             </blockquote>
             <div className="college-experience">
-              <div className="college-story">
+              <div className="college-story-row">
                 <EditableText as="p" field="college-story-primary" editMode={editMode}>
-                  Колледж стал важной частью моего становления. Здесь я встретил много интересных людей, которые поддерживали мой интерес к музыке и помогали смотреть на творчество шире.
+                  Колледж стал важной частью моего становления — не только как музыканта, но и как человека. Здесь я встретил людей, которые поверили в мои идеи, поддерживали интерес к музыке и помогали не бояться пробовать новое. Общение с однокурсниками и преподавателями научило меня внимательнее слушать других, работать вместе и видеть в творчестве больше, чем просто освоение инструмента.
                 </EditableText>
-                <EditableText as="p" field="college-story-secondary" editMode={editMode}>
-                  В МОКИТе я получил пространство для творческого развития и лучше понял, каким музыкантом хочу быть. Для меня это не просто место учёбы, а важная часть личной и музыкальной истории.
-                </EditableText>
-              </div>
-              <div className="college-photo-grid">
                 <figure className="college-photo college-photo-group">
                   <img src="/images/artemiy-mokit-group.jpeg" alt="Студенты МОКИТа вместе в аудитории" />
                   <figcaption>Люди, с которыми росло творчество</figcaption>
                 </figure>
+              </div>
+              <div className="college-story-row">
+                <EditableText as="p" field="college-story-secondary" editMode={editMode}>
+                  В МОКИТе у меня появилось пространство для творческого развития: я участвовал в мероприятиях, выступал на сцене и постепенно находил собственное звучание. Каждый такой опыт помогал лучше понять, каким музыкантом я хочу быть, и придавал уверенности двигаться дальше. Для меня колледж — не просто место учёбы, а важная часть личной и музыкальной истории, к которой я с благодарностью возвращаюсь в воспоминаниях.
+                </EditableText>
                 <figure className="college-photo college-photo-award">
-                  <img src="/images/artemiy-mokit-award.jpeg" alt="Артемий получает грамоту в колледже" />
-                  <figcaption>Один из памятных моментов учёбы</figcaption>
+                  <img src="/images/photo_2025-10-02_16-21-32.jpg" alt="Артемий играет на гитаре перед аудиторией на мероприятии в колледже" />
+                  <figcaption>Музыкальное выступление в колледже</figcaption>
                 </figure>
               </div>
             </div>
@@ -836,11 +885,11 @@ export default function App() {
                   Музыка на сцене
                 </EditableText>
                 <EditableText as="p" field="video-copy" editMode={editMode}>
-                  Здесь может появиться запись выступления или авторской композиции.
+                  Фрагмент живого выступления.
                 </EditableText>
                 <button type="button" className="video-open-button" onClick={openVideoModal}>
                   <span className="video-play-icon"><PlayIcon /></span>
-                  <span>{videoEmbed ? "Смотреть видео" : "Добавить запись"}</span>
+                  <span>Смотреть видео</span>
                   <ArrowIcon />
                 </button>
               </div>
@@ -857,14 +906,14 @@ export default function App() {
             </div>
             <div className="contact-grid reveal">
               <EditableText as="h2" field="contact-heading" editMode={editMode} htmlId="contact-title" className="contact-title">
-                Давайте сыграем что-нибудь вместе.
+                Давайте создадим что-нибудь вместе.
               </EditableText>
               <div className="contact-details">
                 <EditableText as="p" field="story-contact-copy" editMode={editMode}>
                   Учёба, исследования и творчество продолжаются. Буду рад новым идеям и сотрудничеству.
                 </EditableText>
-                <a className="contact-email" href="#projects">
-                  Вернуться к музыкальной главе
+                <a className="contact-email" href="mailto:tema.baranov_64@mail.ru">
+                  tema.baranov_64@mail.ru
                   <ArrowIcon />
                 </a>
               </div>
@@ -946,9 +995,11 @@ export default function App() {
                     />
                   </div>
                 ) : (
-                  <div className="video-modal-poster">
-                    <img src="/images/artemiy-stage.jpg" alt="Артемий выступает на сцене студенческого конкурса" />
-                    <div><span className="video-play-icon"><PlayIcon /></span><span>Здесь появится запись музыки</span></div>
+                  <div className="video-embed-wrap">
+                    <video controls playsInline preload="metadata" poster="/images/artemiy-live.jpg">
+                      <source src={performanceVideo} type="video/mp4" />
+                      Ваш браузер не поддерживает воспроизведение видео.
+                    </video>
                   </div>
                 )}
                 <form className="video-url-form" onSubmit={saveVideo}>
@@ -967,7 +1018,7 @@ export default function App() {
                     <button type="submit">{videoEmbed ? "Обновить" : "Подключить"}</button>
                   </div>
                   {videoError && <p className="video-error">Введите действительную ссылку на видео YouTube или Vimeo.</p>}
-                  <p className="video-form-note">Ссылка сохранится в этом браузере и появится в разделе «Медиа».</p>
+                  <p className="video-form-note">Добавленная ссылка YouTube или Vimeo сохранится в этом браузере вместо видеозаписи.</p>
                 </form>
               </div>
             )}

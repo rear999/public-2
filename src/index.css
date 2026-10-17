@@ -856,9 +856,22 @@ input:focus-visible {
   margin-top: 91px;
 }
 
+.awards-photo {
+  align-self: center;
+  margin: 0;
+}
+
+.awards-photo img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  filter: saturate(0.8);
+}
+
 .timeline-entry {
   display: grid;
-  grid-template-columns: 70px minmax(0, 1fr);
+  grid-template-columns: minmax(0, 1fr);
   gap: 18px;
   padding: 24px 0 26px;
   border-top: 1px solid rgba(240, 239, 232, 0.17);
@@ -866,14 +879,6 @@ input:focus-visible {
 
 .timeline-entry:last-child {
   border-bottom: 1px solid rgba(240, 239, 232, 0.17);
-}
-
-.timeline-year {
-  padding-top: 4px;
-  color: var(--lime);
-  font-family: "Cormorant Garamond", Georgia, serif;
-  font-size: 28px;
-  font-variant-numeric: tabular-nums;
 }
 
 .timeline-entry h3 {
@@ -912,92 +917,6 @@ input:focus-visible {
 
 .timeline-resource:hover svg {
   transform: translate(2px, -2px);
-}
-
-.tunings-panel {
-  padding-top: 5px;
-}
-
-.tunings-heading {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 18px;
-  color: rgba(240, 239, 232, 0.72);
-  font-size: 9px;
-  font-weight: 700;
-  letter-spacing: 0.13em;
-}
-
-.tunings-heading span:last-child {
-  color: rgba(240, 239, 232, 0.45);
-  font-size: 8px;
-  font-weight: 500;
-  letter-spacing: 0;
-  text-transform: none;
-}
-
-.tuning-cards {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 16px;
-  margin-top: 27px;
-}
-
-.tuning-card {
-  min-width: 0;
-  padding: 20px 17px 18px;
-  border: 1px solid rgba(240, 239, 232, 0.16);
-  background: rgba(255, 255, 255, 0.035);
-}
-
-.tuning-index {
-  color: rgba(240, 239, 232, 0.48);
-  font-size: 7px;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-}
-
-.tuning-card h3 {
-  margin: 14px 0 0;
-  color: var(--lime);
-  font-family: "Cormorant Garamond", Georgia, serif;
-  font-size: clamp(31px, 3.2vw, 44px);
-  font-weight: 500;
-  line-height: 1;
-}
-
-.tuning-card p {
-  min-height: 52px;
-  margin: 11px 0 0;
-  color: rgba(240, 239, 232, 0.66);
-  font-size: 9px;
-  line-height: 1.65;
-}
-
-.tuning-notes {
-  display: grid;
-  grid-template-columns: repeat(6, minmax(0, 1fr));
-  gap: 5px;
-  margin-top: 17px;
-}
-
-.tuning-notes span {
-  display: grid;
-  aspect-ratio: 1;
-  place-items: center;
-  border: 1px solid rgba(225, 138, 110, 0.55);
-  border-radius: 50%;
-  color: var(--lime);
-  font-size: 9px;
-  font-weight: 700;
-}
-
-.tuning-caption {
-  margin: 16px 0 0;
-  color: rgba(240, 239, 232, 0.52);
-  font-size: 9px;
-  line-height: 1.7;
 }
 
 .diploma-gallery {
@@ -1046,6 +965,14 @@ input:focus-visible {
   overflow: hidden;
 }
 
+.diploma-item-landscape .diploma-image {
+  aspect-ratio: 1.55;
+}
+
+.diploma-item-wide {
+  grid-column: span 2;
+}
+
 .diploma-image img {
   display: block;
   width: 100%;
@@ -1076,6 +1003,41 @@ input:focus-visible {
   font-family: "Cormorant Garamond", Georgia, serif;
   font-size: 23px;
   line-height: 1.12;
+}
+
+.diploma-toggle {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  gap: 13px;
+  margin-top: 38px;
+  padding: 0 17px;
+  border: 1px solid rgba(35, 39, 32, 0.32);
+  color: var(--ink);
+  background: transparent;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: color 180ms ease, background-color 180ms ease, border-color 180ms ease;
+}
+
+.diploma-toggle:hover {
+  border-color: var(--ink);
+  color: var(--paper);
+  background: var(--ink);
+}
+
+.diploma-toggle span {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1;
+}
+
+.diploma-toggle:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 3px;
 }
 
 .quote-section {
@@ -1160,28 +1122,23 @@ input:focus-visible {
 
 .college-experience {
   display: grid;
-  grid-template-columns: 0.78fr 1.22fr;
-  align-items: center;
-  gap: clamp(28px, 5vw, 72px);
+  grid-template-columns: minmax(0, 1fr);
+  gap: clamp(30px, 5vw, 58px);
   margin: 0 0 0 9%;
 }
 
-.college-story p {
+.college-story-row {
+  display: grid;
+  grid-template-columns: 0.78fr 1.22fr;
+  align-items: start;
+  gap: clamp(28px, 5vw, 72px);
+}
+
+.college-story-row > p {
   margin: 0;
   color: #56594f;
-  font-size: 11px;
-  line-height: 1.85;
-}
-
-.college-story p + p {
-  margin-top: 15px;
-}
-
-.college-photo-grid {
-  display: grid;
-  grid-template-columns: 1.08fr 0.72fr;
-  align-items: end;
-  gap: clamp(12px, 2vw, 24px);
+  font-size: 14px;
+  line-height: 1.8;
 }
 
 .college-photo {
@@ -1192,7 +1149,7 @@ input:focus-visible {
 .college-photo img {
   display: block;
   width: 100%;
-  height: clamp(190px, 24vw, 310px);
+  height: clamp(250px, 30vw, 390px);
   object-fit: cover;
 }
 
@@ -1201,7 +1158,6 @@ input:focus-visible {
 }
 
 .college-photo-award img {
-  height: clamp(220px, 29vw, 360px);
   object-position: center 35%;
 }
 
@@ -1695,12 +1651,17 @@ input:focus-visible {
   height: 17px;
 }
 
-.video-embed-wrap iframe {
+.video-embed-wrap iframe,
+.video-embed-wrap video {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
   border: 0;
+}
+
+.video-embed-wrap video {
+  object-fit: contain;
 }
 
 .video-url-form {
@@ -1956,10 +1917,6 @@ input:focus-visible {
     grid-template-columns: 1fr;
     gap: 59px;
     margin-top: 62px;
-  }
-
-  .tunings-panel {
-    max-width: 610px;
   }
 
   .quote-inner blockquote {
@@ -2257,13 +2214,8 @@ input:focus-visible {
   }
 
   .timeline-entry {
-    grid-template-columns: 53px minmax(0, 1fr);
-    gap: 12px;
+    grid-template-columns: minmax(0, 1fr);
     padding-block: 20px;
-  }
-
-  .timeline-year {
-    font-size: 23px;
   }
 
   .timeline-entry h3 {
@@ -2272,34 +2224,6 @@ input:focus-visible {
 
   .timeline-entry p {
     font-size: 9px;
-  }
-
-  .tunings-heading {
-    align-items: flex-start;
-    flex-direction: column;
-    gap: 5px;
-  }
-
-  .tuning-cards {
-    grid-template-columns: 1fr;
-    gap: 11px;
-    margin-top: 20px;
-  }
-
-  .tuning-card {
-    padding: 17px;
-  }
-
-  .tuning-card p {
-    min-height: 0;
-  }
-
-  .tuning-notes {
-    max-width: 260px;
-  }
-
-  .tuning-caption {
-    font-size: 8px;
   }
 
   .quote-inner blockquote {
@@ -2325,21 +2249,18 @@ input:focus-visible {
     margin-left: 18px;
   }
 
-  .college-story p {
-    font-size: 10px;
+  .college-story-row {
+    grid-template-columns: 1fr;
+    gap: 16px;
   }
 
-  .college-photo-grid {
-    grid-template-columns: 1fr 0.78fr;
-    gap: 10px;
+  .college-story-row > p {
+    font-size: 12px;
   }
 
-  .college-photo-group img {
-    height: 190px;
-  }
-
+  .college-photo-group img,
   .college-photo-award img {
-    height: 220px;
+    height: clamp(220px, 58vw, 320px);
   }
 
   .college-photo figcaption {
@@ -2377,6 +2298,14 @@ input:focus-visible {
 
   .diploma-item {
     width: min(100%, 390px);
+  }
+
+  .diploma-item-wide {
+    grid-column: auto;
+  }
+
+  .diploma-item-landscape .diploma-image {
+    aspect-ratio: 0.72;
   }
 
   .diploma-item figcaption p {
